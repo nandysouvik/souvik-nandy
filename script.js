@@ -30,24 +30,46 @@ scrollBtn.addEventListener("click", () => {
 });
 
 const form = document.getElementById('form');
+// const message = document.getElementById('message');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const detail = document.getElementById('detail');
+const inputs = document.querySelectorAll('input');
 const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   checkInputs();
-  db.collection('contactInfo').add({
-    name: username.value,
-    email: email.value,
-    detail: detail.value,
-    timeStamp: firebase.firestore.FieldValue.serverTimestamp()
-  });
-  username.innerHTM;
-  email.innerHTML;
-  detail.innerHTML;
+
+  if (!username.value == '' && !email.value == '' && !detail.value == '') {
+
+    function storeDatabase() {
+      db.collection('contactInfo').add({
+        name: username.value,
+        email: email.value,
+        detail: detail.value,
+        timeStamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+      setSuccessForMessage(message, "Succesfully saved");
+
+      username.innerHTML = "";
+      email.innerHTML = "";
+      detail.innerHTML = "";
+    }
+
+    storeDatabase();
+  }
+
+  inputs.forEach(input => input.value = '');
+
 });
+
+
+
+
+
+
 
 
 function checkInputs() {
@@ -94,7 +116,12 @@ function setSuccessFor(input) {
   const formControl = input.parentElement //form controldiv
   formControl.classList.add("success");
   formControl.className = 'form-control success'
-
-
 }
 
+function setSuccessForMessage(input, message) {
+
+  const small = input;
+  small.innerText = message;
+  small.classList.add("successMessage");
+  small.className = 'successMessage';
+}

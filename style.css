@@ -321,11 +321,6 @@ body {
   background: #2427e3;
 }
 
-.skills .content .col-right .bar .frameworks::before {
-  width: 70%;
-  background: #24bde3;
-}
-
 .skills .content .col-right .bar .responsive_degisn::before {
   width: 90%;
   background: #24e36d;
@@ -385,7 +380,7 @@ body {
   font-size: 1.2em;
   font-weight: 700;
   margin: 10px;
-} 
+} */
 
 .work {
   background: #000016;
@@ -412,7 +407,7 @@ body {
   border-radius: 10px;
 }
 
-.work .content .card .card-img img {
+.work .content .card .card-img a img {
   position: absolute;
   top: 0;
   left: 0;
@@ -423,9 +418,9 @@ body {
   transition: 0.5s ease;
 }
 
-.work .content .card .card-img img:hover {
+.work .content .card .card-img a img:hover {
   transform: scale(1.2);
-} */
+}
 
 .contact .content {
   display: flex;
@@ -505,6 +500,17 @@ body {
   position: relative;
 }
 
+.contact .content .row .container .form .form-message small {
+  visibility: hidden;
+  bottom: 0;
+  left: 0;
+}
+
+.contact .content .row .container .form .form-message small.successMessage {
+  color: #2ecc2e;
+  visibility: visible;
+}
+
 .contact .content .row .container .form .form-control label {
   display: inline-block;
   margin-bottom: 5px;
@@ -552,25 +558,11 @@ body {
   width: 100%;
   font-size: 14px;
   font-weight: bold;
-}
-
-.contact .content .row .container .form .form-control.success input {
-  border-color: #2ecc2e;
+  cursor: pointer;
 }
 
 .contact .content .row .container .form .form-control.error input {
   border-color: #e74c3c;
-}
-
-.contact
-  .content
-  .row
-  .container
-  .form
-  .form-control.success
-  i.fa-check-circle {
-  color: #2ecc2e;
-  visibility: visible;
 }
 
 .contact
