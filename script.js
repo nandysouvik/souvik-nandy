@@ -30,7 +30,7 @@ scrollBtn.addEventListener("click", () => {
 });
 
 const form = document.getElementById('form');
-// const message = document.getElementById('message');
+const message = document.getElementById('message');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const detail = document.getElementById('detail');
@@ -56,6 +56,12 @@ form.addEventListener('submit', (e) => {
       username.innerHTML = "";
       email.innerHTML = "";
       detail.innerHTML = "";
+
+      function hideMessage() {
+        message.style.visibility = "hidden";
+      }
+
+      setTimeout(hideMessage, 5000);
     }
 
     storeDatabase();
